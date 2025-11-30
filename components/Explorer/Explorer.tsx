@@ -17,7 +17,7 @@ export default function Explorer() {
 
       <div className="text-center">
         <h2 className="text-2xl font-bold text-purple-600 mb-2">
-          {t.polyominoNames[selectedN]}
+          {(t.polyominoNames as Record<number, string>)[selectedN]}
         </h2>
         <p className="text-lg text-gray-600">
           {shapes.length} {shapes.length !== 1 ? t.explorer.title_plural : t.explorer.title} {t.explorer.with} {selectedN} {selectedN !== 1 ? t.explorer.square_plural : t.explorer.square}

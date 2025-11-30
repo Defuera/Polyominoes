@@ -27,7 +27,7 @@ export default function NSelector({ selectedN, onSelect, maxN = 6 }: NSelectorPr
           `}
         >
           <div className="text-sm font-normal opacity-75">
-            {t.polyominoNames[n]}
+            {(t.polyominoNames as Record<number, string>)[n]}
           </div>
           <div className="text-lg">{n} {n !== 1 ? t.explorer.square_plural : t.explorer.square}</div>
         </button>
