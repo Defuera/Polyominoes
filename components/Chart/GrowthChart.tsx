@@ -17,7 +17,7 @@ export default function GrowthChart() {
       n,
       count,
       logCount: Math.log10(count),
-      name: t.polyominoNames[n] || `${n}-omino`,
+      name: (t.polyominoNames as Record<number, string>)[n] || `${n}-omino`,
     };
   });
 
