@@ -1,15 +1,25 @@
-# 🧩 Polyominoes Explorer
+# 🔢 Interactive Math Explorer
 
-An interactive educational web application for exploring polyominoes - shapes made from squares!
+An interactive educational web platform for exploring fascinating mathematical concepts through visualizations, games, and hands-on learning!
 
-Built for exploring mathematics with your daughter.
+Built for making abstract mathematics visual, tactile, and playful.
 
-## Features
+## Available Problems
 
+### 🧩 Polyominoes Explorer
+Discover shapes made from squares! Features include:
 - **🔍 Explorer Mode**: Browse all unique polyominoes for 1-6 squares
 - **📊 Growth Chart**: Visualize how the number of shapes grows exponentially
 - **🎮 Game Mode**: Interactive challenge to discover all shapes yourself
 - **📚 Learn Section**: Educational content about the math, history, and applications
+
+## Coming Soon
+
+- **🌀 Ulam Spiral**: Discover mysterious patterns in prime numbers
+- **🔢 Number Partitions**: Explore partition theory with Ferrers diagrams
+- **🔺 Polyiamonds**: Triangular polyominoes
+- **📊 Riemann Hypothesis**: Visualize the million-dollar math problem
+- **🔮 p-adic Numbers**: Mind-bending alternative number systems
 
 ## Getting Started
 
@@ -30,26 +40,31 @@ Open [http://localhost:3000](http://localhost:3000) in your browser.
 ## Project Structure
 
 ```
-├── app/                    # Next.js app router
-├── components/            # React components
-│   ├── Explorer/         # Shape browsing
-│   ├── Chart/            # Growth visualization
-│   ├── Game/             # Interactive game
-│   ├── Learn/            # Educational content
-│   └── shared/           # Reusable components
+├── app/
+│   ├── page.tsx                    # Home page with problem cards
+│   ├── problems/
+│   │   └── polyominoes/           # Polyominoes problem
+│   └── layout.tsx
+├── components/
+│   ├── home/                      # Home page components
+│   ├── Explorer/                  # Polyominoes explorer
+│   ├── Chart/                     # Growth visualization
+│   ├── Game/                      # Interactive games
+│   ├── Learn/                     # Educational content
+│   └── shared/                    # Reusable components
 ├── lib/
-│   ├── algorithms/       # Polyomino algorithms
-│   └── data/             # Shape definitions
-└── types/                # TypeScript types
+│   ├── algorithms/                # Mathematical algorithms
+│   ├── data/                      # Problem definitions & data
+│   └── i18n/                      # Internationalization
+└── types/                         # TypeScript types
 ```
 
-## What are Polyominoes?
+## Adding New Problems
 
-Polyominoes are shapes made by joining squares edge-to-edge. Named by Solomon Golomb in 1953, they're used in:
-- Mathematics (combinatorics, tiling theory)
-- Games (Tetris uses tetrominoes!)
-- Computer science
-- Chemistry
-- Art and design
+Each problem is a self-contained module under `/app/problems/[problem-id]/`. See `/ideas/` directory for planned problems with detailed specifications.
+
+## Philosophy
+
+Make abstract mathematics visual, tactile, and playful. The best math education tools create "aha!" moments through exploration, not explanation.
 
 Have fun exploring! 🎉

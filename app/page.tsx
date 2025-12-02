@@ -1,18 +1,14 @@
 'use client';
 
-import { useState } from 'react';
-import { TabType } from '@/types/polyomino';
 import { I18nProvider, useI18n } from '@/lib/i18n/context';
-import Tabs from '@/components/shared/Tabs';
 import LanguageSwitcher from '@/components/shared/LanguageSwitcher';
-import Explorer from '@/components/Explorer/Explorer';
-import GrowthChart from '@/components/Chart/GrowthChart';
-import GameMode from '@/components/Game/GameMode';
-import LearnContent from '@/components/Learn/LearnContent';
+import ProblemCard from '@/components/home/ProblemCard';
+import { PROBLEMS } from '@/lib/data/problems';
 
 function HomeContent() {
-  const [activeTab, setActiveTab] = useState<TabType>('explorer');
   const { t } = useI18n();
+  const availableProblems = PROBLEMS.filter((p) => p.metadata.status === 'available');
+  const comingSoonProblems = PROBLEMS.filter((p) => p.metadata.status === 'coming-soon');
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-purple-100 via-pink-100 to-blue-100">
@@ -23,28 +19,41 @@ function HomeContent() {
         </div>
 
         {/* Header */}
-        <header className="text-center mb-10">
+        <header className="text-center mb-12">
           <h1 className="text-5xl md:text-6xl font-bold text-purple-600 mb-3 drop-shadow-lg">
-            🧩 {t.title}
+            🔢 Interactive Math Explorer
           </h1>
-          <p className="text-xl text-gray-700 max-w-2xl mx-auto">
-            {t.subtitle}
+          <p className="text-xl text-gray-700 max-w-3xl mx-auto">
+            Discover the fascinating world of mathematics through interactive visualizations, games, and explorations!
           </p>
         </header>
 
-        {/* Tabs */}
-        <Tabs activeTab={activeTab} onTabChange={setActiveTab} />
+        {/* Available Problems */}
+        {availableProblems.length > 0 && (
+          <section className="mb-12">
+            <h2 className="text-3xl font-bold text-gray-800 mb-6">Explore Now</h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {availableProblems.map((problem) => (
+                <ProblemCard key={problem.metadata.id} problem={problem} />
+              ))}
+            </div>
+          </section>
+        )}
 
-        {/* Content */}
-        <div className="bg-white rounded-2xl shadow-2xl p-6 md:p-10 min-h-[600px]">
-          {activeTab === 'explorer' && <Explorer />}
-          {activeTab === 'chart' && <GrowthChart />}
-          {activeTab === 'game' && <GameMode />}
-          {activeTab === 'learn' && <LearnContent />}
-        </div>
+        {/* Coming Soon */}
+        {comingSoonProblems.length > 0 && (
+          <section className="mb-12">
+            <h2 className="text-3xl font-bold text-gray-800 mb-6">Coming Soon</h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {comingSoonProblems.map((problem) => (
+                <ProblemCard key={problem.metadata.id} problem={problem} />
+              ))}
+            </div>
+          </section>
+        )}
 
         {/* Footer */}
-        <footer className="text-center mt-10 text-gray-600">
+        <footer className="text-center mt-16 text-gray-600">
           <p className="text-sm">{t.footer}</p>
         </footer>
       </div>

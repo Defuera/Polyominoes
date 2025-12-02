@@ -13,8 +13,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Polyominoes Explorer | Interactive Math Learning",
-  description: "Discover the fascinating world of polyominoes! Explore shapes made from squares, visualize exponential growth, and play interactive games to learn mathematics.",
+  title: "Interactive Math Explorer | Learn Through Play",
+  description: "Discover the fascinating world of mathematics through interactive visualizations and games! Explore polyominoes, prime patterns, number theory, and more.",
 };
 
 export default function RootLayout({
