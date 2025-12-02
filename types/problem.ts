@@ -1,4 +1,4 @@
-export type ProblemId = 'polyominoes' | 'ulam-spiral' | 'number-partitions' | 'riemann-hypothesis' | 'p-adic-numbers' | 'polyiamonds';
+export type ProblemId = 'polyominoes' | 'collatz-conjecture' | 'ulam-spiral' | 'number-partitions' | 'riemann-hypothesis' | 'p-adic-numbers' | 'polyiamonds';
 
 export type ProblemDifficulty = 'easy' | 'medium' | 'hard';
 

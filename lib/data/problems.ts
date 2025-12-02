@@ -16,6 +16,20 @@ export const PROBLEMS_METADATA: ProblemMetadata[] = [
     priority: 5,
   },
   {
+    id: 'collatz-conjecture',
+    title: 'Collatz Conjecture',
+    titleKey: 'problems.collatz.title',
+    description: 'The simplest unsolved problem! Apply two simple rules and watch numbers reach 1.',
+    descriptionKey: 'problems.collatz.description',
+    difficulty: 'easy',
+    ageRange: '8+',
+    categories: ['number-theory'],
+    icon: '🎢',
+    estimatedTime: '15-30 min',
+    status: 'available',
+    priority: 5,
+  },
+  {
     id: 'ulam-spiral',
     title: 'Ulam Spiral',
     titleKey: 'problems.ulam-spiral.title',
@@ -87,10 +101,14 @@ export const PROBLEMS_METADATA: ProblemMetadata[] = [
   },
 ];
 
-export const PROBLEMS: Problem[] = PROBLEMS_METADATA.map((metadata) => ({
-  metadata,
-  path: `/problems/${metadata.id}`,
-}));
+export const PROBLEMS: Problem[] = PROBLEMS_METADATA.map((metadata) => {
+  // Handle special routing cases
+  const pathId = metadata.id === 'collatz-conjecture' ? 'collatz' : metadata.id;
+  return {
+    metadata,
+    path: `/problems/${pathId}`,
+  };
+});
 
 export function getProblem(id: string): Problem | undefined {
   return PROBLEMS.find((p) => p.metadata.id === id);
