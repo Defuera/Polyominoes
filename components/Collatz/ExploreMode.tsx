@@ -114,7 +114,7 @@ export default function ExploreMode() {
 
       {/* Input Section */}
       <div className="bg-gradient-to-r from-purple-50 to-blue-50 rounded-xl p-6 shadow-md">
-        <div className="flex flex-col sm:flex-row gap-4 items-center justify-center">
+        <div className="flex flex-col sm:flex-row gap-4 items-end justify-center">
           <div className="flex flex-col items-center gap-2">
             <label className="text-sm font-semibold text-gray-700">{t.collatz.explore.enterNumber}</label>
             <input
@@ -122,7 +122,7 @@ export default function ExploreMode() {
               value={inputValue}
               onChange={(e) => setInputValue(e.target.value)}
               onKeyDown={(e) => e.key === 'Enter' && handleExplore()}
-              className="w-32 px-4 py-3 text-2xl font-bold text-center border-2 border-purple-300 rounded-lg focus:outline-none focus:border-purple-500"
+              className="w-32 h-12 px-4 text-2xl font-bold text-center border-2 border-purple-300 rounded-lg focus:outline-none focus:border-purple-500"
               min="1"
               max="100000"
             />
@@ -131,13 +131,13 @@ export default function ExploreMode() {
           <div className="flex gap-2">
             <button
               onClick={handleExplore}
-              className="px-6 py-3 bg-purple-600 text-white font-bold rounded-lg hover:bg-purple-700 transition-colors shadow-md hover:shadow-lg"
+              className="h-12 px-6 bg-purple-600 text-white font-bold rounded-lg hover:bg-purple-700 transition-colors shadow-md hover:shadow-lg"
             >
               🚀 {t.collatz.explore.startRide}
             </button>
             <button
               onClick={handleRandom}
-              className="px-6 py-3 bg-blue-600 text-white font-bold rounded-lg hover:bg-blue-700 transition-colors shadow-md hover:shadow-lg"
+              className="h-12 px-6 bg-blue-600 text-white font-bold rounded-lg hover:bg-blue-700 transition-colors shadow-md hover:shadow-lg"
             >
               🎲 {t.collatz.explore.random}
             </button>
