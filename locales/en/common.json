@@ -94,6 +94,12 @@
     "happyExploring": "Happy exploring! 🧩"
   },
   "footer": "Built with ❤️ for exploring mathematics | Inspired by Solomon Golomb & Martin Gardner",
+  "collatz": {
+    "title": "Collatz Conjecture",
+    "subtitle": "The simplest unsolved problem in mathematics!",
+    "description": "Pick any number, follow the rules, and watch the magic happen",
+    "footer": "Built with ❤️ for exploring mathematics | Nobody knows why this works!"
+  },
   "polyominoNames": {
     "1": "Monomino",
     "2": "Domino",

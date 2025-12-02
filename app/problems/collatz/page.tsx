@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import { CollatzTabType } from '@/types/collatz';
+import { useI18n } from '@/lib/i18n/context';
 import LanguageSwitcher from '@/components/shared/LanguageSwitcher';
 import CollatzTabs from '@/components/Collatz/CollatzTabs';
 import ExploreMode from '@/components/Collatz/ExploreMode';
@@ -11,6 +12,7 @@ import CompareMode from '@/components/Collatz/CompareMode';
 import LearnContent from '@/components/Collatz/LearnContent';
 
 export default function CollatzPage() {
+  const { t } = useI18n();
   const [activeTab, setActiveTab] = useState<CollatzTabType>('explore');
 
   return (
@@ -30,13 +32,13 @@ export default function CollatzPage() {
         {/* Header */}
         <header className="text-center mb-10">
           <h1 className="text-5xl md:text-6xl font-bold text-blue-600 mb-3 drop-shadow-lg">
-            🎢 Collatz Conjecture
+            🎢 {t.collatz.title}
           </h1>
           <p className="text-xl text-gray-700 max-w-2xl mx-auto">
-            The simplest unsolved problem in mathematics!
+            {t.collatz.subtitle}
           </p>
           <p className="text-lg text-gray-600 mt-2">
-            Pick any number, follow the rules, and watch the magic happen
+            {t.collatz.description}
           </p>
         </header>
 
@@ -54,7 +56,7 @@ export default function CollatzPage() {
         {/* Footer */}
         <footer className="text-center mt-10 text-gray-600">
           <p className="text-sm">
-            Built with ❤️ for exploring mathematics | Nobody knows why this works!
+            {t.collatz.footer}
           </p>
         </footer>
       </div>
