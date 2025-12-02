@@ -100,17 +100,17 @@
     "description": "Pick any number, follow the rules, and watch the magic happen",
     "footer": "Built with ❤️ for exploring mathematics | Nobody knows why this works!",
     "tabs": {
-      "explore": "🚀 Explore",
-      "race": "🏁 Race",
-      "compare": "🔍 Compare",
-      "learn": "📚 Learn"
+      "explore": "Explore",
+      "race": "Race",
+      "compare": "Compare",
+      "learn": "Learn"
     },
     "explore": {
-      "title": "🎢 Number Roller Coaster",
+      "title": "Number Roller Coaster",
       "subtitle": "Pick any number and watch its journey to 1!",
       "enterNumber": "Enter a number:",
-      "startRide": "🚀 Start Ride!",
-      "random": "🎲 Random",
+      "startRide": "Start Ride!",
+      "random": "Random",
       "tryFamous": "Try these famous numbers:",
       "steps": "Steps",
       "highestPoint": "Highest Point",

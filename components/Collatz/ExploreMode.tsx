@@ -105,7 +105,7 @@ export default function ExploreMode() {
       {/* Header */}
       <div className="text-center">
         <h2 className="text-3xl font-bold text-gray-800 mb-2">
-          {t.collatz.explore.title}
+          🎢 {t.collatz.explore.title}
         </h2>
         <p className="text-gray-600">
           {t.collatz.explore.subtitle}
@@ -133,13 +133,13 @@ export default function ExploreMode() {
               onClick={handleExplore}
               className="px-6 py-3 bg-purple-600 text-white font-bold rounded-lg hover:bg-purple-700 transition-colors shadow-md hover:shadow-lg"
             >
-              {t.collatz.explore.startRide}
+              🚀 {t.collatz.explore.startRide}
             </button>
             <button
               onClick={handleRandom}
               className="px-6 py-3 bg-blue-600 text-white font-bold rounded-lg hover:bg-blue-700 transition-colors shadow-md hover:shadow-lg"
             >
-              {t.collatz.explore.random}
+              🎲 {t.collatz.explore.random}
             </button>
           </div>
         </div>

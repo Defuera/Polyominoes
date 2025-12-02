@@ -11,11 +11,11 @@ interface CollatzTabsProps {
 export default function CollatzTabs({ activeTab, onTabChange }: CollatzTabsProps) {
   const { t } = useI18n();
 
-  const tabs: { id: CollatzTabType; label: string }[] = [
-    { id: 'explore', label: t.collatz.tabs.explore },
-    { id: 'race', label: t.collatz.tabs.race },
-    { id: 'compare', label: t.collatz.tabs.compare },
-    { id: 'learn', label: t.collatz.tabs.learn },
+  const tabs: { id: CollatzTabType; icon: string; label: string }[] = [
+    { id: 'explore', icon: '🚀', label: t.collatz.tabs.explore },
+    { id: 'race', icon: '🏁', label: t.collatz.tabs.race },
+    { id: 'compare', icon: '🔍', label: t.collatz.tabs.compare },
+    { id: 'learn', icon: '📚', label: t.collatz.tabs.learn },
   ];
 
   return (
@@ -33,7 +33,7 @@ export default function CollatzTabs({ activeTab, onTabChange }: CollatzTabsProps
             }
           `}
         >
-          {tab.label}
+          {tab.icon} {tab.label}
         </button>
       ))}
     </div>
