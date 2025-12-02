@@ -46,19 +46,35 @@ export default function ExploreMode() {
     setIsAnimating(true);
     setAnimationStep(0);
 
-    const duration = Math.min(3000, totalSteps * 50); // Max 3 seconds
-    const stepDuration = duration / totalSteps;
-
     let currentStep = 0;
-    const interval = setInterval(() => {
-      currentStep++;
-      setAnimationStep(currentStep);
+    let lastTime = Date.now();
 
-      if (currentStep >= totalSteps) {
-        clearInterval(interval);
-        setIsAnimating(false);
+    // Accelerating animation: starts slow, gets faster
+    const animate = () => {
+      const now = Date.now();
+      const elapsed = now - lastTime;
+
+      // Calculate delay based on progress (starts at 200ms, decreases to 30ms)
+      const progress = currentStep / totalSteps;
+      const baseDelay = 200; // Start slower for visibility
+      const minDelay = 30;   // Minimum delay for fast sequences
+      const currentDelay = baseDelay - (baseDelay - minDelay) * Math.pow(progress, 2);
+
+      if (elapsed >= currentDelay) {
+        currentStep++;
+        setAnimationStep(currentStep);
+        lastTime = now;
+
+        if (currentStep >= totalSteps) {
+          setIsAnimating(false);
+          return;
+        }
       }
-    }, stepDuration);
+
+      requestAnimationFrame(animate);
+    };
+
+    requestAnimationFrame(animate);
   };
 
   // Auto-explore on mount
