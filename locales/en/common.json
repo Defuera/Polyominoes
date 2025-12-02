@@ -98,7 +98,39 @@
     "title": "Collatz Conjecture",
     "subtitle": "The simplest unsolved problem in mathematics!",
     "description": "Pick any number, follow the rules, and watch the magic happen",
-    "footer": "Built with ❤️ for exploring mathematics | Nobody knows why this works!"
+    "footer": "Built with ❤️ for exploring mathematics | Nobody knows why this works!",
+    "tabs": {
+      "explore": "🚀 Explore",
+      "race": "🏁 Race",
+      "compare": "🔍 Compare",
+      "learn": "📚 Learn"
+    },
+    "explore": {
+      "title": "🎢 Number Roller Coaster",
+      "subtitle": "Pick any number and watch its journey to 1!",
+      "enterNumber": "Enter a number:",
+      "startRide": "🚀 Start Ride!",
+      "random": "🎲 Random",
+      "tryFamous": "Try these famous numbers:",
+      "steps": "Steps",
+      "highestPoint": "Highest Point",
+      "glideRatio": "Glide Ratio",
+      "evenSteps": "Even Steps",
+      "oddSteps": "Odd Steps",
+      "even": "÷ 2 (even)",
+      "odd": "× 3 + 1 (odd)",
+      "reached": "Reached 1!",
+      "journeyTook": "The journey took {steps} steps and reached as high as {max}!",
+      "chartTitle": "Journey Visualization",
+      "step": "Step",
+      "value": "Value",
+      "rulesTitle": "📋 The Rules",
+      "ruleEven": "If the number is <strong>even</strong>: divide by 2",
+      "ruleOdd": "If the number is <strong>odd</strong>: multiply by 3 and add 1",
+      "ruleRepeat": "Repeat until you reach 1",
+      "mystery": "🤔 <strong>Mystery:</strong> Does every number eventually reach 1? Nobody knows for sure! This is an unsolved problem in mathematics.",
+      "errorRange": "Please enter a number between 1 and 100,000"
+    }
   },
   "polyominoNames": {
     "1": "Monomino",

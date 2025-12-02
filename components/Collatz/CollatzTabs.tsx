@@ -1,6 +1,7 @@
 'use client';
 
 import { CollatzTabType } from '@/types/collatz';
+import { useI18n } from '@/lib/i18n/context';
 
 interface CollatzTabsProps {
   activeTab: CollatzTabType;
@@ -8,11 +9,13 @@ interface CollatzTabsProps {
 }
 
 export default function CollatzTabs({ activeTab, onTabChange }: CollatzTabsProps) {
-  const tabs: { id: CollatzTabType; label: string; icon: string }[] = [
-    { id: 'explore', label: 'Explore', icon: '🚀' },
-    { id: 'race', label: 'Race', icon: '🏁' },
-    { id: 'compare', label: 'Compare', icon: '🔍' },
-    { id: 'learn', label: 'Learn', icon: '📚' },
+  const { t } = useI18n();
+
+  const tabs: { id: CollatzTabType; label: string }[] = [
+    { id: 'explore', label: t.collatz.tabs.explore },
+    { id: 'race', label: t.collatz.tabs.race },
+    { id: 'compare', label: t.collatz.tabs.compare },
+    { id: 'learn', label: t.collatz.tabs.learn },
   ];
 
   return (
@@ -30,7 +33,7 @@ export default function CollatzTabs({ activeTab, onTabChange }: CollatzTabsProps
             }
           `}
         >
-          {tab.icon} {tab.label}
+          {tab.label}
         </button>
       ))}
     </div>

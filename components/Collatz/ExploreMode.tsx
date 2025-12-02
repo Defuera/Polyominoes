@@ -17,7 +17,7 @@ export default function ExploreMode() {
   const explore = (num: number) => {
     try {
       if (num < 1 || num > 100000) {
-        setError('Please enter a number between 1 and 100,000');
+        setError(t.collatz.explore.errorRange);
         return;
       }
       setError('');
@@ -105,10 +105,10 @@ export default function ExploreMode() {
       {/* Header */}
       <div className="text-center">
         <h2 className="text-3xl font-bold text-gray-800 mb-2">
-          🎢 Number Roller Coaster
+          {t.collatz.explore.title}
         </h2>
         <p className="text-gray-600">
-          Pick any number and watch its journey to 1!
+          {t.collatz.explore.subtitle}
         </p>
       </div>
 
@@ -116,7 +116,7 @@ export default function ExploreMode() {
       <div className="bg-gradient-to-r from-purple-50 to-blue-50 rounded-xl p-6 shadow-md">
         <div className="flex flex-col sm:flex-row gap-4 items-center justify-center">
           <div className="flex flex-col items-center gap-2">
-            <label className="text-sm font-semibold text-gray-700">Enter a number:</label>
+            <label className="text-sm font-semibold text-gray-700">{t.collatz.explore.enterNumber}</label>
             <input
               type="number"
               value={inputValue}
@@ -133,13 +133,13 @@ export default function ExploreMode() {
               onClick={handleExplore}
               className="px-6 py-3 bg-purple-600 text-white font-bold rounded-lg hover:bg-purple-700 transition-colors shadow-md hover:shadow-lg"
             >
-              🚀 Start Ride!
+              {t.collatz.explore.startRide}
             </button>
             <button
               onClick={handleRandom}
               className="px-6 py-3 bg-blue-600 text-white font-bold rounded-lg hover:bg-blue-700 transition-colors shadow-md hover:shadow-lg"
             >
-              🎲 Random
+              {t.collatz.explore.random}
             </button>
           </div>
         </div>
@@ -150,7 +150,7 @@ export default function ExploreMode() {
 
         {/* Famous Numbers */}
         <div className="mt-4 text-center">
-          <p className="text-sm text-gray-600 mb-2">Try these famous numbers:</p>
+          <p className="text-sm text-gray-600 mb-2">{t.collatz.explore.tryFamous}</p>
           <div className="flex flex-wrap gap-2 justify-center">
             {FAMOUS_NUMBERS.map(({ number, reason }) => (
               <button
@@ -176,35 +176,35 @@ export default function ExploreMode() {
             <div className="text-2xl font-bold text-blue-800">
               {isAnimating ? animationStep : collatzData.stats.steps}
             </div>
-            <div className="text-sm text-blue-600">Steps</div>
+            <div className="text-sm text-blue-600">{t.collatz.explore.steps}</div>
           </div>
 
           <div className="bg-purple-100 rounded-lg p-4 text-center">
             <div className="text-2xl font-bold text-purple-800">
               {collatzData.stats.maxValue.toLocaleString()}
             </div>
-            <div className="text-sm text-purple-600">Highest Point</div>
+            <div className="text-sm text-purple-600">{t.collatz.explore.highestPoint}</div>
           </div>
 
           <div className="bg-green-100 rounded-lg p-4 text-center">
             <div className="text-2xl font-bold text-green-800">
               {collatzData.stats.glideRatio.toFixed(1)}x
             </div>
-            <div className="text-sm text-green-600">Glide Ratio</div>
+            <div className="text-sm text-green-600">{t.collatz.explore.glideRatio}</div>
           </div>
 
           <div className="bg-indigo-100 rounded-lg p-4 text-center">
             <div className="text-2xl font-bold text-indigo-800">
               {collatzData.stats.evenCount}
             </div>
-            <div className="text-sm text-indigo-600">Even Steps</div>
+            <div className="text-sm text-indigo-600">{t.collatz.explore.evenSteps}</div>
           </div>
 
           <div className="bg-pink-100 rounded-lg p-4 text-center">
             <div className="text-2xl font-bold text-pink-800">
               {collatzData.stats.oddCount}
             </div>
-            <div className="text-sm text-pink-600">Odd Steps</div>
+            <div className="text-sm text-pink-600">{t.collatz.explore.oddSteps}</div>
           </div>
         </div>
       )}
@@ -216,7 +216,7 @@ export default function ExploreMode() {
             {currentValue.toLocaleString()}
           </div>
           <div className="text-sm text-yellow-700">
-            {currentValue % 2 === 0 ? '÷ 2 (even)' : '× 3 + 1 (odd)'}
+            {currentValue % 2 === 0 ? t.collatz.explore.even : t.collatz.explore.odd}
           </div>
         </div>
       )}
@@ -226,10 +226,10 @@ export default function ExploreMode() {
         <div className="bg-gradient-to-r from-green-100 to-blue-100 border-2 border-green-400 rounded-lg p-6 text-center">
           <div className="text-4xl mb-2">🎉</div>
           <div className="text-2xl font-bold text-green-800 mb-1">
-            Reached 1!
+            {t.collatz.explore.reached}
           </div>
           <div className="text-sm text-green-700">
-            The journey took {collatzData.stats.steps} steps and reached as high as {collatzData.stats.maxValue.toLocaleString()}!
+            {t.collatz.explore.journeyTook.replace('{steps}', collatzData.stats.steps.toString()).replace('{max}', collatzData.stats.maxValue.toLocaleString())}
           </div>
         </div>
       )}
@@ -238,17 +238,17 @@ export default function ExploreMode() {
       {collatzData && (
         <div className="bg-white rounded-lg p-6 shadow-md">
           <h3 className="text-xl font-bold text-gray-800 mb-4 text-center">
-            Journey Visualization
+            {t.collatz.explore.chartTitle}
           </h3>
           <ResponsiveContainer width="100%" height={400}>
             <LineChart data={getChartData()}>
               <CartesianGrid strokeDasharray="3 3" />
               <XAxis
                 dataKey="step"
-                label={{ value: 'Step', position: 'insideBottom', offset: -5 }}
+                label={{ value: t.collatz.explore.step, position: 'insideBottom', offset: -5 }}
               />
               <YAxis
-                label={{ value: 'Value', angle: -90, position: 'insideLeft' }}
+                label={{ value: t.collatz.explore.value, angle: -90, position: 'insideLeft' }}
               />
               <Tooltip
                 content={({ active, payload }) => {
@@ -295,17 +295,14 @@ export default function ExploreMode() {
 
       {/* The Rules */}
       <div className="bg-gray-50 rounded-lg p-6 border-2 border-gray-200">
-        <h3 className="text-lg font-bold text-gray-800 mb-3">📋 The Rules</h3>
+        <h3 className="text-lg font-bold text-gray-800 mb-3">{t.collatz.explore.rulesTitle}</h3>
         <div className="space-y-2 text-gray-700">
-          <p>• If the number is <span className="font-bold text-blue-600">even</span>: divide by 2</p>
-          <p>• If the number is <span className="font-bold text-red-600">odd</span>: multiply by 3 and add 1</p>
-          <p>• Repeat until you reach 1</p>
+          <p dangerouslySetInnerHTML={{ __html: '• ' + t.collatz.explore.ruleEven }} />
+          <p dangerouslySetInnerHTML={{ __html: '• ' + t.collatz.explore.ruleOdd }} />
+          <p>• {t.collatz.explore.ruleRepeat}</p>
         </div>
         <div className="mt-4 p-3 bg-yellow-50 border border-yellow-200 rounded">
-          <p className="text-sm text-gray-700">
-            🤔 <span className="font-bold">Mystery:</span> Does every number eventually reach 1?
-            Nobody knows for sure! This is an unsolved problem in mathematics.
-          </p>
+          <p className="text-sm text-gray-700" dangerouslySetInnerHTML={{ __html: t.collatz.explore.mystery }} />
         </div>
       </div>
     </div>
